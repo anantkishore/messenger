@@ -23,6 +23,14 @@
 					<target>1.7</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.2.2</version>
+				<configuration>
+					<webappDirectory>/Anant/Softwares/apache-tomcat-8.5.32/webapps/messenger.war</webappDirectory>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -71,6 +79,17 @@
 			<groupId>org.glassfish.jersey.media</groupId>
 			<artifactId>jersey-media-json-binding</artifactId>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+
+
 	</dependencies>
 	<properties>
 		<jersey.version>2.27</jersey.version>

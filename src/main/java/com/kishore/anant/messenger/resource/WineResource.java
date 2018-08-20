@@ -94,11 +94,9 @@ public class WineResource {
 		return wineService.updateWine(id, wine);
 	}
 	
-	@GET
-	@Path("/{wineId}/comments")
-	public CommentResource getCommentResource()
+	@Path("{wineId}")
+	public CommentResource getComment()
 	{
 		return new CommentResource();
 	}
-
 }

@@ -6,7 +6,7 @@ package com.kishore.anant.messenger.dao.impl;
 import org.bson.Document;
 
 import com.kishore.anant.messenger.dao.MessengerDao;
-import com.kishore.anant.messenger.entity.Message;
+import com.kishore.anant.messenger.entity.Comment;
 import com.kishore.anant.messenger.exception.DaoException;
 import com.kishore.anant.messenger.utility.ProcessEntityToDoc;
 import com.mongodb.MongoClient;
@@ -65,8 +65,8 @@ public class MessengerDaoiImpl implements MessengerDao {
 	@Override
 	public void save(Object o, String collectionName) throws DaoException {
 
-		if (o instanceof Message) {
-			Message msg = (Message) o;
+		if (o instanceof Comment) {
+			Comment msg = (Comment) o;
 			Document doc = ProcessEntityToDoc.getDocument(msg);
 			MessengerDaoiImpl.getCollection(collectionName).insertOne(doc);
 		}

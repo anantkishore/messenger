@@ -3,6 +3,8 @@
  */
 package com.kishore.anant.messenger.resource;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.ws.rs.GET;
@@ -11,14 +13,13 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.kishore.anant.messenger.entity.Message;
-import com.kishore.anant.messenger.service.MessageService;
+import com.kishore.anant.messenger.entity.Comment;
 
 /**
  * @author i351596
  *
  */
-@Path("/messages")
+@Path("/comments")
 public class MessageResource {
 
 	/**
@@ -28,9 +29,17 @@ public class MessageResource {
 	}
 
 	@GET
-	@Produces(MediaType.APPLICATION_XML)
-	public List<Message> getMessage() {
-		return new MessageService().getAllMessages();
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Comment> getMessage() {
+		
+		List<Comment> comments = new ArrayList<Comment>();
+		Comment comment = new Comment();
+		comment.setId("2");
+		comment.setText("text");
+		comment.setCreatedDate(new Date());
+		comment.setAuthor("Anant Kishore");
+		comments.add(comment);
+		return comments;
 	}
 
 	@POST

@@ -29,6 +29,8 @@ import com.mongodb.client.result.UpdateResult;
  */
 public class WineDaoImpl implements WineDao {
 
+	private static MongoClient mongoClient; 
+	
 	private static volatile WineDaoImpl wineDaoImpl;
 
 	private static MongoDatabase database;
@@ -74,10 +76,6 @@ public class WineDaoImpl implements WineDao {
 
 	@Override
 	public Wine update(String id, Wine wine) throws DaoException {
-
-		//BasicDBObject query = new BasicDBObject("_id", new ObjectId(id));
-
-		//BasicDBObject basicDBObject = new BasicDBObject(ProcessEntityToDoc.getObjectMap(wine));
 
 		Bson bsonFilter = Filters.eq("ID", id);
 		
@@ -151,6 +149,10 @@ public class WineDaoImpl implements WineDao {
 		Bson bsonFilter = Filters.eq("ID", id);
 		WineDaoImpl.collection.deleteOne(bsonFilter);
 		return null;
+	}
+
+	public static void closeAllResources() {
+		WineDaoImpl.mongoClient.close();
 	}
 
 }

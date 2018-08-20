@@ -3,6 +3,8 @@
  */
 package com.kishore.anant.messenger.entity;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -23,7 +25,9 @@ public class Wine {
 	public static final String VARIETY = "variety";
 	public static final String WINERY = "winery";
 	public static final String ID = "ID";
+	public static final String COMMENTS = "comments";
 	public static final Object OBJECT_ID = "_id";
+	
 
 	private String oID;
 	private String id;
@@ -37,6 +41,8 @@ public class Wine {
 	private String region_2;
 	private String variety;
 	private String winery;
+	
+	private List<Comment> comments;
 
 	/**
 	 * 
@@ -46,7 +52,7 @@ public class Wine {
 	}
 
 	public Wine(String id, String country, String description, String designation, String points, String price,
-			String province, String region_1, String region_2, String variety, String winery) {
+			String province, String region_1, String region_2, String variety, String winery, List<Comment> comments) {
 		super();
 		this.id = id;
 		this.country = country;
@@ -59,6 +65,7 @@ public class Wine {
 		this.region_2 = region_2;
 		this.variety = variety;
 		this.winery = winery;
+		this.comments = comments;
 	}
 	
 	public String getoID() {
@@ -155,6 +162,26 @@ public class Wine {
 
 	public void setWinery(String winery) {
 		this.winery = winery;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public static String getRegion1() {
+		return REGION_1;
+	}
+
+	public static String getRegion2() {
+		return REGION_2;
+	}
+
+	public static Object getObjectId() {
+		return OBJECT_ID;
 	}
 
 }
